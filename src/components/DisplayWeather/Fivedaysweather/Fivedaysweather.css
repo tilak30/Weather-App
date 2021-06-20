@@ -1,0 +1,53 @@
+.cards{
+    height: 170px;
+    background: #1E213A;
+    margin-bottom: 35px;
+}
+.cards1{
+    height: 170px;
+    background: #1E213A;
+    margin: auto;
+}
+.day{
+    width: 76px;
+    height: 19px;
+    padding-top: 15px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #E7E7EB;
+}
+.image{
+    margin-top: 25px;
+    width: 56.44px;
+    height: 62px;
+    margin-left: 15px;;
+}
+.low-high{
+    display:flex;
+    justify-content: space-around;
+    margin-top: 25px;
+}
+.high{
+    width: 33px;
+    height: 19px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #E7E7EB;
+}
+.low{
+    width: 30px;
+    height: 19px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #A09FB1;
+}

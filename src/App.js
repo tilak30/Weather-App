@@ -3,6 +3,7 @@ import Slider from './components/Slider/Slider';
 import DisplayWeather from "./components/DisplayWeather/DisplayWeather";
 import './App.css';
 
+
 function App() {
   return (
     <div className="main container-fluid">

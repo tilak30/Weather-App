@@ -1,0 +1,61 @@
+.highlight-card{
+    margin: 15px;
+}
+.wind{
+    height: 185px;
+    background: #1E213A;
+    margin:20px;
+}
+.windstatus{
+    width: 90px;
+    height: 19px;
+    margin-top: 22px;
+    margin-bottom: 6px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #E7E7EB;
+}
+.amount{
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 75px;
+    color:#E7E7EB;
+}
+.unit{
+    font-family: Raleway;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 42px;
+    color:#E7E7EB;
+}
+.wind-indicator{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-top: 17px;
+}
+.image1{
+    background: rgba(255, 255, 255, 0.3);
+    width: 29.49px;
+    height: 29.49px;
+    border-radius: 50%;
+}
+.wind-direction{
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 28px;
+    line-height: 30px;
+    margin-left: 10px;
+    color: #E7E7EB;
+}
+.wind1{
+    height: 159px;
+    background: #1E213A;
+    margin: 20px;
+}
