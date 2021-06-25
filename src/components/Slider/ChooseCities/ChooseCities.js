@@ -1,7 +1,7 @@
 import React from 'react';
-import go from '../../images/chevron_right.svg';
+import go from '../../../images/chevron_right.svg';
 import {API_URL} from '../../../constants';
-import './ChooseCities';
+import './ChooseCities.css';
 
 function ChooseCities({city,setData,setOpen}){
     

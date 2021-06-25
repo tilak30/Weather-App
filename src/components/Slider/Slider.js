@@ -6,6 +6,7 @@ import sun from '../../images/Shower.png';
 import location2 from '../../images/place.svg';
 import {API_URL} from '../../constants';
 import searchicon from '../../images/search.svg';
+import ChooseCities from "./ChooseCities/ChooseCities";
 
 
 function Slider ({data, setData}) {
