@@ -6,6 +6,29 @@
     background: #1E213A;
     overflow: hidden;
 }
+.close {
+    right: 32px;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+}
+.close:hover {
+    opacity: 1;
+}
+.close:before, .close:after {
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: rgb(255, 255, 255);
+}
+.close:before {
+    transform: rotate(45deg);
+}
+.close:after {
+    transform: rotate(-45deg);
+}
+  
 .cross-icon{
     display: flex;
     align-self: flex-end;
@@ -58,29 +81,7 @@
     display: flex;
     flex-direction: column;
 }
-.search-cities{
-    width: 367px;
-    height: 64px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-bottom: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.search-cities:hover{
-    box-sizing: border-box;
-    border: 1px solid #616475;
-}
-.city-name{
-    width: 200px;
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 19px;
-    color: #E7E7EB;
-}
+
 .aside{
     position: relative;
     display: flex;

@@ -1,0 +1,23 @@
+.search-cities{
+    width: 367px;
+    height: 64px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search-cities:hover{
+    box-sizing: border-box;
+    border: 1px solid #616475;
+}
+.city-name{
+    width: 200px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 19px;
+    color: #E7E7EB;
+}

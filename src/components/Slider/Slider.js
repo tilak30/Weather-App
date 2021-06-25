@@ -4,19 +4,18 @@ import './Slider.css';
 import clouds from '../../images/Cloud-background.png';
 import sun from '../../images/Shower.png';
 import location2 from '../../images/place.svg';
-import close123 from '../../images/close123.svg';
+import {API_URL} from '../../constants';
 import searchicon from '../../images/search.svg';
-import go from '../../images/chevron_right.svg'
 
 
-function Slider () {
+function Slider ({data, setData}) {
     const [open,setOpen] = useState(false);
 
         return(
             <div>
             {   open 
-                ?<SideNavOpen setOpen={setOpen} />
-                :<SideNavClosed setOpen={setOpen}/>
+                ?<SideNavOpen setOpen={setOpen} setData={setData}/>
+                :<SideNavClosed setOpen={setOpen} data={data}/>
         }    
         </div>
         );
@@ -24,26 +23,49 @@ function Slider () {
 
 export default Slider;
 
-function SideNavOpen({setOpen}){
+function SideNavOpen({setOpen, setData}){
+
+    const [inputField,setInputField] = useState("");
+    const [queryData,setQueryData] = useState([]);
+
+    const handleChange = e =>{
+        setInputField(e.target.value);
+    }
+    const handleSubmit = e =>{
+        e.preventDefault();
+        if(inputField==="")
+            return;
+
+        const URL=`${API_URL}search/?query=${inputField}`;
+        fetch(URL)
+        .then(res => res.json())
+        .then((res)=>{
+            setQueryData(res);
+            console.log(queryData);
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+        
+    }
+
     return (
         <div className="search-bar">
-            <button type="button" onClick={() => setOpen(false)} className="close cross-icon" style={{backgroundColor: "#1E213A", color: "#E7E7EB"}}>
-                <span style={{fontSize: "17px" ,fontWeight: 1000}} ariaHidden="true">&times;</span>
-            </button>
-            <div class="search-container">
+            <a href="#" onClick={() => setOpen(false)} className="close cross-icon"></a>
+            <div className="search-container">
                 <img src={searchicon } alt="search" width="17.05" height="17.06" />
-                <input type="text" class="search-input" placeholder="search location" />
-                <input type="button" class="search-button" value="Search" />
+                <input type="text" onChange={handleChange} className="search-input" placeholder="search location" />
+                <input type="button" onClick={handleSubmit} className="search-button" value="Search" />
             </div>
             <div className="allcities">
-                <div className="search-cities">
-                    <span type="button" className="city-name">London</span>
-                    <img src={go} alt="go"/>
-                </div>
-                <div className="search-cities">
-                    <span type="button" className="city-name">New York</span>
-                    <img src={go} alt="go"/>
-                </div>
+                {queryData.map((city)=>(
+                        <ChooseCities
+                            city={city}
+                            setData={setData}
+                            setOpen={setOpen}
+                        />
+                    ))
+                }
             </div>
         </div>
     );

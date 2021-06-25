@@ -6,12 +6,12 @@ import Highlights from "./Highlights/Highlights";
 
 function DisplayWeather () {
     return (
-        <div class="navigation">
+        <div className="navigation">
             <div className="container">
                 <div className="row">
                     <div className="temp offset-10 col">
-                        <button class="celcius"><span class="cel">℃</span></button>
-                        <button class="farhenite"><span class="cel">℉</span></button>
+                        <button className="celcius"><span className="cel">℃</span></button>
+                        <button className="farhenite"><span className="cel">℉</span></button>
                     </div>
                 </div>
             </div>

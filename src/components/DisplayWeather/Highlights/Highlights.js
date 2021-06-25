@@ -23,17 +23,17 @@ export default function Highlights(){
                         <span className="amount">84</span>
                         <span className="unit"> %</span>
                     </div>
-                    <div class="indicator">
-                        <div class="indicator-scale">
+                    <div className="indicator">
+                        <div className="indicator-scale">
                             <span>0</span>
                             <span>50</span>
                             <span>100</span>
                         </div>
-                        <div class="line-container">
-                            <div class="line line--back"></div>
-                            <div class="line line--front" style={{width: "62%"}}></div>
+                        <div className="line-container">
+                            <div className="line line--back"></div>
+                            <div className="line line--front" style={{width: "62%"}}></div>
                         </div>
-                        <span class="indicator-unit">%</span>
+                        <span className="indicator-unit">%</span>
                     </div>
                 </div>
                 <div className="wind1 col-10 col-md-5">
