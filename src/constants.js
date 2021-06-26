@@ -28,9 +28,41 @@ const WEATHER_STATES = {
   t: thunderstorm,
 };
 
+function prepareDate(date) {
+  const monthNames = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+
+  const dayNames = [
+    'Sun',
+    'Mon',
+    'Tue',
+    'Wed',
+    'Thu',
+    'Fri',
+    'Sat',
+  ];
+  var d = new Date(date);
+  const day = d.getDate();
+  const dayName = d.getDay();
+  const month = d.getMonth();
+  return `${dayNames[dayName]}, ${day} ${monthNames[month]}`;
+}
+
 // Minsk
 const DEFAULT_WOEID = 834463;
 
 export {
-  API_URL, WEATHER_STATES, SEARCH_QUERY_URL, DEFAULT_WOEID,
+  API_URL, COR_URL, WEATHER_STATES, SEARCH_QUERY_URL, DEFAULT_WOEID, prepareDate
 };

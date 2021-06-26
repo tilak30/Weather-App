@@ -13,7 +13,7 @@ export default function Highlights(){
                         <span className="unit"> mph</span>
                     </div>
                     <div className="wind-indicator" /*style={{ transform: "30deg" }}*/>
-                        <div className="image1"><img src={windarrow} width="20px" height="20px" style={{position:"relative", left:"5px", bottom:"1px"}}/></div>
+                        <div className="image1"><img alt="windarrow" src={windarrow} width="20px" height="20px" style={{position:"relative", left:"5px", bottom:"1px"}}/></div>
                         <span className="wind-direction">NE</span>
                     </div>
                 </div>

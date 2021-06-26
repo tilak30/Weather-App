@@ -4,7 +4,7 @@ import Fivedaysweather from "./Fivedaysweather/Fivedaysweather";
 import Highlights from "./Highlights/Highlights";
 
 
-function DisplayWeather () {
+function DisplayWeather ({data}) {
     return (
         <div className="navigation">
             <div className="container">
@@ -15,11 +15,11 @@ function DisplayWeather () {
                     </div>
                 </div>
             </div>
-            <Fivedaysweather />
+            <Fivedaysweather data={data}/>
             <div className="heading">
                 Today’s Hightlights 
             </div>
-            <Highlights />
+            <Highlights data={data} />
             <div className="mx-auto madeby">
                 Created by Tilak Bhansali - devChallenges.io
             </div>

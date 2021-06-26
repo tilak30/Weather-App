@@ -7,9 +7,10 @@
     height: 170px;
     background: #1E213A;
     margin: auto;
+    display: inline;
 }
 .day{
-    width: 76px;
+    width: 90px;
     height: 19px;
     padding-top: 15px;
     font-family: Raleway;

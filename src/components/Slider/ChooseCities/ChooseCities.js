@@ -3,15 +3,16 @@ import go from '../../../images/chevron_right.svg';
 import {API_URL} from '../../../constants';
 import './ChooseCities.css';
 
-function ChooseCities({city,setData,setOpen}){
+function ChooseCities({key, city,setData,setOpen,data}){
     
     const handleClick = e =>{
         e.preventDefault();
+        
         fetch(`${API_URL}${city.woeid}`)
         .then(res => res.json())
         .then((res)=>{
-            console.log(res);
             setData(res);
+            console.log(data);
             setOpen(false);
         })
         .catch((err)=>{
@@ -22,7 +23,7 @@ function ChooseCities({city,setData,setOpen}){
     return(
         <div className="search-cities" onClick={handleClick}>
             <span type="button" className="city-name">{city.title}</span>
-            <img src={go} alt="go"/>
+            <img alt="goicon" src={go} alt="go"/>
         </div>
     );
 }
