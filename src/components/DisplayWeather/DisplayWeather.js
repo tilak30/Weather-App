@@ -4,18 +4,18 @@ import Fivedaysweather from "./Fivedaysweather/Fivedaysweather";
 import Highlights from "./Highlights/Highlights";
 
 
-function DisplayWeather ({data}) {
+function DisplayWeather ({data,temp,setTemp}) {
     return (
         <div className="navigation">
             <div className="container">
                 <div className="row">
                     <div className="temp offset-10 col">
-                        <button className="celcius"><span className="cel">℃</span></button>
-                        <button className="farhenite"><span className="cel">℉</span></button>
+                        <button onClick={()=>setTemp(true)} className="celcius"><span className="cel">℃</span></button>
+                        <button onClick={()=>setTemp(false)} className="farhenite"><span className="cel">℉</span></button>
                     </div>
                 </div>
             </div>
-            <Fivedaysweather data={data}/>
+            <Fivedaysweather data={data} temp={temp}/>
             <div className="heading">
                 Today’s Hightlights 
             </div>

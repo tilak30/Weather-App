@@ -10,7 +10,7 @@ import searchicon from '../../images/search.svg';
 import ChooseCities from "./ChooseCities/ChooseCities";
 
 
-function Slider ({data, setData}) {
+function Slider ({data, setData, temp}) {
     const [open,setOpen] = useState(false);
     const [location, setLocation] = useState(null);
 
@@ -18,7 +18,7 @@ function Slider ({data, setData}) {
             <div>
             {   open 
                 ?<SideNavOpen setOpen={setOpen} setData={setData} data={data}/>
-                :<SideNavClosed setOpen={setOpen} location={location} data={data}/>
+                :<SideNavClosed setOpen={setOpen} location={location} data={data} temp={temp}/>
         }    
         </div>
         );
@@ -76,8 +76,10 @@ function SideNavOpen({setOpen, setData, data}){
     );
 }
 
-function SideNavClosed({setOpen,data}){
+function SideNavClosed({setOpen,data,temp}){
     const today = prepareDate(new Date());
+    const celcius = Math.floor(data.consolidated_weather[0].the_temp);
+    const farhenite = Math.floor((celcius *1.8) + 32);
     return (
         <div className="aside">
             <nav className="aside-nav">
@@ -88,8 +90,8 @@ function SideNavClosed({setOpen,data}){
                 <img className="sun" alt="weather" src={`https://www.metaweather.com/static/img/weather/${data.consolidated_weather[0].weather_state_abbr}.svg`}></img>
             </div>
             <div className="temperature">
-                <span className="number">{Math.floor(data.consolidated_weather[0].the_temp)}</span>
-                <span className="quan">℃</span>
+                <span className="number">{temp ? celcius : farhenite }</span>
+                <span className="quan">{temp ? '℃' : '℉'}</span>
             </div>
             <h3 className="status">{data.consolidated_weather[0].weather_state_name}</h3>
             <div className="bottom">
