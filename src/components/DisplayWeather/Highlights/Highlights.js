@@ -12,9 +12,9 @@ export default function Highlights({data}){
                         <span className="amount">{Math.floor(data.consolidated_weather[0].wind_speed)}</span>
                         <span className="unit"> mph</span>
                     </div>
-                    <div className="wind-indicator" /*style={{ transform: "30deg" }}*/>
+                    <div className="wind-indicator" /*style={{ transform: "rotate(${30}deg)" }}*/>
                         <div className="image1"><img alt="windarrow" src={windarrow} width="20px" height="20px" style={{position:"relative", left:"5px", bottom:"1px"}}/></div>
-                        <span className="wind-direction">NE</span>
+                        <span className="wind-direction">{data.consolidated_weather[0].wind_direction_compass}</span>
                     </div>
                 </div>
                 <div className="wind col-10 offset-md-1 col-md-5">
