@@ -12,12 +12,13 @@ import ChooseCities from "./ChooseCities/ChooseCities";
 
 function Slider ({data, setData}) {
     const [open,setOpen] = useState(false);
+    const [location, setLocation] = useState(null);
 
         return(
             <div>
             {   open 
                 ?<SideNavOpen setOpen={setOpen} setData={setData} data={data}/>
-                :<SideNavClosed setOpen={setOpen} data={data}/>
+                :<SideNavClosed setOpen={setOpen} location={location} data={data}/>
         }    
         </div>
         );
@@ -76,7 +77,6 @@ function SideNavOpen({setOpen, setData, data}){
 }
 
 function SideNavClosed({setOpen,data}){
-    //const image = `https://www.metaweather.com/static/img/weather/${data.consolidated_weather[0].weather_state_abbr}.svg`;
     const today = prepareDate(new Date());
     return (
         <div className="aside">
@@ -85,13 +85,13 @@ function SideNavClosed({setOpen,data}){
             </nav>
             <div className="background">
                 <img className="clouds" alt="clouds" src={clouds}></img>
-                <img className="sun" alt="weather" src={image}></img>
+                <img className="sun" alt="weather" src={`https://www.metaweather.com/static/img/weather/${data.consolidated_weather[0].weather_state_abbr}.svg`}></img>
             </div>
             <div className="temperature">
-                <span className="number"></span>
+                <span className="number">{Math.floor(data.consolidated_weather[0].the_temp)}</span>
                 <span className="quan">℃</span>
             </div>
-            <h3 className="status"></h3>
+            <h3 className="status">{data.consolidated_weather[0].weather_state_name}</h3>
             <div className="bottom">
                 <div className="date">
                     <span>Today</span>
@@ -100,9 +100,9 @@ function SideNavClosed({setOpen,data}){
                 </div>
                 <div className="location2">
                     <img src={location2} alt="location" width="24" height="24" />
-                    <span></span>
+                    <span>{ data.title }</span>
                 </div>
             </div>
         </div>
     );
-}//{Math.floor(data.consolidated_weather[0].the_temp)}{data.consolidated_weather[0].weather_state_name}{data.title}
+}//}

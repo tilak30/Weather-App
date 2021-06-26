@@ -2,12 +2,23 @@ import React, {useEffect, useState} from "react";
 import Slider from './components/Slider/Slider';
 import DisplayWeather from "./components/DisplayWeather/DisplayWeather";
 import './App.css';
-import {API_URL} from './constants';
+import {initialData} from './constants';
 
 function App() {
 
-  const [data,setData] = useState({});
-
+  const [data,setData] = useState(initialData);
+  // useEffect(()=>{
+  //   const URL = `${API_URL}44418/`//https://www.metaweather.com/api/location/
+  //   fetch(URL)
+  //     .then(res => res.json())
+  //     .then((res)=>{
+  //         setQueryData(res);
+  //         console.log(queryData);
+  //     })
+  //     .catch((err)=>{
+  //         console.log(err);
+  //     })
+  // })
   return (
     <div className="main container-fluid">
       <div className="row">
