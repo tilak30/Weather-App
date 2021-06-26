@@ -9,7 +9,7 @@ function DisplayWeather ({data,temp,setTemp}) {
         <div className="navigation">
             <div className="container">
                 <div className="row">
-                    <div className="temp offset-10 col">
+                    <div className="temp offset-9 col-sm-3 offset-md-10 col-md-2">
                         <button onClick={()=>setTemp(true)} className="celcius"><span className="cel">℃</span></button>
                         <button onClick={()=>setTemp(false)} className="farhenite"><span className="cel">℉</span></button>
                     </div>

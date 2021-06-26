@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import './Slider.css';
-//import location from '../../images/my_location.svg';
+import location from '../../images/my_location.svg';
 import clouds from '../../images/Cloud-background.png';
-import image from '../../images/Shower.png';
 import { prepareDate } from "../../constants";
 import location2 from '../../images/place.svg';
 import {API_URL, COR_URL} from '../../constants';
@@ -84,6 +83,7 @@ function SideNavClosed({setOpen,data,temp}){
         <div className="aside">
             <nav className="aside-nav">
                 <button onClick={() => setOpen(true)} className="btn btn-secondary button1">Search for places</button>
+                <button className="location"><img src={location} alt="location" width="24" height="24"/></button>
             </nav>
             <div className="background">
                 <img className="clouds" alt="clouds" src={clouds}></img>
