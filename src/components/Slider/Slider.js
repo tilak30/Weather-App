@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import './Slider.css';
-import location from '../../images/my_location.svg';
+import locimg from '../../images/my_location.svg';
 import clouds from '../../images/Cloud-background.png';
 import { prepareDate } from "../../constants";
 import location2 from '../../images/place.svg';
@@ -11,13 +11,12 @@ import ChooseCities from "./ChooseCities/ChooseCities";
 
 function Slider ({data, setData, temp}) {
     const [open,setOpen] = useState(false);
-    const [location, setLocation] = useState(null);
 
         return(
             <div>
             {   open 
                 ?<SideNavOpen setOpen={setOpen} setData={setData} data={data}/>
-                :<SideNavClosed setOpen={setOpen} location={location} data={data} temp={temp}/>
+                :<SideNavClosed setOpen={setOpen} data={data} temp={temp} setData={setData}/>
         }    
         </div>
         );
@@ -43,7 +42,7 @@ function SideNavOpen({setOpen, setData, data}){
         .then(res => res.json())
         .then((res)=>{
             setQueryData(res);
-            console.log(queryData);
+            //console.log(queryData);
         })
         .catch((err)=>{
             console.log(err);
@@ -75,15 +74,49 @@ function SideNavOpen({setOpen, setData, data}){
     );
 }
 
-function SideNavClosed({setOpen,data,temp}){
+function SideNavClosed({setOpen,data,temp,setData}){
     const today = prepareDate(new Date());
     const celcius = Math.floor(data.consolidated_weather[0].the_temp);
     const farhenite = Math.floor((celcius *1.8) + 32);
+
+    const fetcher = (latitude,longitude) =>{     
+        fetch(`${API_URL}search/?lattlong=${latitude},${longitude}`)
+        .then(res => res.json())
+        .then((res)=>{
+            //console.log(res);
+            fetch(`${API_URL}${res[0].woeid}`)
+            .then(res => res.json())
+            .then((res)=>{
+                setData(res);
+                //console.log(data);
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
+
+    const getLocation = () =>{
+        navigator.geolocation.getCurrentPosition(success,failure);
+        function success(position){
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            fetcher(latitude,longitude);
+        }
+
+        function failure(){
+           return;
+        }
+    }
+
     return (
         <div className="aside">
             <nav className="aside-nav">
                 <button onClick={() => setOpen(true)} className="btn btn-secondary button1">Search for places</button>
-                <button className="location"><img src={location} alt="location" width="24" height="24"/></button>
+                <button className="location" onClick={getLocation}><img src={locimg} alt="location" width="24" height="24"/></button>
             </nav>
             <div className="background">
                 <img className="clouds" alt="clouds" src={clouds}></img>

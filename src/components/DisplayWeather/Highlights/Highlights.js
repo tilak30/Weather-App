@@ -29,8 +29,8 @@ export default function Highlights({data}){
                             <span>50</span>
                             <span>100</span>
                         </div>
-                        <div className="line-container">
-                            <div className="line line--back"></div>
+                        <div className="line-container" style={{width: "180px"}}>
+                            <div className="line line--back" style={{width: "180px"}}></div>
                             <div className="line line--front" style={{ width: `${data.consolidated_weather[0].humidity}%` }}></div>
                         </div>
                         <span className="indicator-unit">%</span>

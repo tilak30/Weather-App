@@ -12,7 +12,7 @@ function ChooseCities({key, city,setData,setOpen,data}){
         .then(res => res.json())
         .then((res)=>{
             setData(res);
-            console.log(data);
+            //(data);
             setOpen(false);
         })
         .catch((err)=>{
