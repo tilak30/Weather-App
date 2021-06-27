@@ -24,7 +24,7 @@ export default function Highlights({data}){
                         <span className="unit"> %</span>
                     </div>
                     <div className="indicator">
-                        <div className="indicator-scale">
+                        <div className="indicator-scale" style={{width: "180px"}}>
                             <span>0</span>
                             <span>50</span>
                             <span>100</span>
